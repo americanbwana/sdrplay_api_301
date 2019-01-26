@@ -376,13 +376,13 @@ int main(int argc, char *argv[]) {
 		case Keydown:
 			{
 				cout <<  "Current gRdb is " << chParams->tunerParams.gain.gRdB << endl;
-                cout << "Reducing gain.  New value is "<< (chParams->tunerParams.gain.gRdB) + 1 << endl ;
+                cout << "Reducing gain.  New value is "<< (chParams->tunerParams.gain.gRdB) - 1 << endl ;
   //               {
                         chParams->tunerParams.gain.gRdB -= 1;
                         // Limit it to a minimum of 20dB
                         if (chParams->tunerParams.gain.gRdB < 20)
                             chParams->tunerParams.gain.gRdB = 59;
-                        else chParams->tunerParams.gain.gRdB += 1;    
+                        else chParams->tunerParams.gain.gRdB -= 1;    
                         if ((err = sdrplay_api_Update(chosenDevice->dev, chosenDevice->tuner, sdrplay_api_Update_Tuner_Gr)) != sdrplay_api_Success)
                         {
                             cout << "sdrplay_api_Update sdrplay_api_Update_Tuner_Gr failed " << sdrplay_api_GetErrorString(err) << endl;
